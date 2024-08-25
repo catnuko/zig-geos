@@ -1,4 +1,4 @@
-# [libgeos.zig](https://github.com/guidorice/libgeos.zig.git)
+# [zig-geos](https://github.com/guidorice/libgeos.zig.git)
 [Zig](https://ziglang.org) bindings for the [GEOS C library (libgeos)](https://libgeos.org/)
 
 > GEOS (Geometry Engine, Open Source) is a C/C++ library for spatial computational geometry of the sort generally used by “geographic information systems” software. GEOS is a core dependency of PostGIS, QGIS, GDAL, and Shapely.
@@ -9,7 +9,7 @@
 
 ## Zig version
 
-* `0.9.1`, `0.10.0-dev`
+* `0.13`
 
 ## Build
 

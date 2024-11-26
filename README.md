@@ -53,10 +53,7 @@ some error conditions, for example, failing to parse some WKT formatted string.
   * [x] [Ex 1 (threadsafe)](src/examples/ex1_threadsafe.zig)
   * [x] [Ex 2](src/examples/ex2.zig) Reads one geometry and does high-performance prepared geometry operations to place "random" points inside it.
   * [x] [Ex 3](src/examples/ex3.zig) Build a spatial index and search it for a nearest pair.
-* [ ] Solution for `std:runtime_error` conditions (see known issues)
-* [ ] New Zig idiomatic wrapper for libgeos C API? Alternatively: port to Zig-native.
-* [ ] New GeoJSON reader/writer which speaks libgeos types and full support for Feature properties. Reference: [GEOS GeoJSON support notes here.](https://libgeos.org/specifications/geojson/)
-* [ ] New Zig projects which utilize these Geospatial or Geometric primitives.
+  * [x] [Ex 4](src/examples/ex4.zig) Read and write geojson.
 
 ## Notes
 

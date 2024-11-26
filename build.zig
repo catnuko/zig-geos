@@ -21,6 +21,11 @@ const examples = [_]Example{
         .src = "src/examples/ex3.zig",
         .descr = "Ex 3: Build a spatial index and search it for a nearest pair.",
     },
+     Example{
+        .cmd = "run-ex4",
+        .src = "src/examples/ex4.zig",
+        .descr = "Ex 4: Read and write geojson.",
+    },
 };
 
 pub fn build(b: *std.Build) !void {

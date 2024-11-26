@@ -82,7 +82,7 @@ const geos_cpp_args = [_][]const u8{
     "-Wunused-parameter",
     "-fno-common",
     "-Wno-unknown-warning-option",
-    "-std=c++11",
+    "-std=c++14",
 };
 
 pub const Options = struct {

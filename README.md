@@ -5,7 +5,7 @@
 
 ## GEOS version
 
-`3.10.2-CAPI-1.16.0`
+`3.13.0`
 
 ## Zig version
 

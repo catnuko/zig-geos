@@ -2,7 +2,13 @@
     .name = "zig-geos",
     .version = "0.0.1",
     .minimum_zig_version = "0.13.0",
-    .dependencies = .{},
+    .dependencies = .{
+        .geos = .{
+            .url = "file:libs/geos-3.13.0.zip",
+            .hash = "12206548d12e4abced6ac9df1197b4f8bca53a4069c77c51046cd6dc8ce2b72a3b61",
+            .lazy = true
+        },
+    },
     .paths = .{
         "build.zig",
         "build.zig.zon",

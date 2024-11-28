@@ -3,7 +3,7 @@ const std = @import("std");
 const Allocator = std.mem.Allocator;
 const ArrayList = std.ArrayList;
 const endsWith = std.mem.endsWith;
-pub fn addIncludePath(b:*std.Build,libOrExe:*std.Build.Step.Compile,geos_dep:*std.Build.Dependency) void {
+pub fn addIncludePath(b:*std.Build,libOrExe:anytype,geos_dep:*std.Build.Dependency) void {
     const include_dirs = [_][]const u8{
         "/home/catnuko/zig-geos/src/vendor/geos/build/capi",
         "/home/catnuko/zig-geos/src/vendor/geos/build/include",

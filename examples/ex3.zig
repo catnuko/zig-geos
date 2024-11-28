@@ -4,7 +4,6 @@
 const c = @import("zig-geos");
 
 const std = @import("std");
-const handlers = @import("default_handlers");
 
 var prng = std.rand.DefaultPrng.init(42); // TODO: better random seed
 const random = prng.random();
@@ -26,7 +25,7 @@ pub fn main() !void {
     const stdout = std.io.getStdOut().writer();
 
     // Send notice and error messages to our stdout handler
-    c.initGEOS(handlers.shimNotice, handlers.shimError);
+    c.initGEOS(c.shimNotice, c.shimError);
 
     // Clean up the global context
     defer c.finishGEOS();

@@ -2,9 +2,6 @@ const std = @import("std");
 const builtin = @import("builtin");
 const testing = std.testing;
 
-pub extern "c" fn shimNotice(format: [*c]const u8, ...) void;
-pub extern "c" fn shimError(format: [*c]const u8, ...) void;
-
 /// libgeos notice handler. Is called by C fn shimNotice().
 export fn noticeHandler(msg: [*:0]u8) void {
     std.log.info("libgeos: {s}", .{msg});

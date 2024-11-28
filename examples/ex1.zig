@@ -5,13 +5,12 @@
 const c = @import("zig-geos");
 
 const std = @import("std");
-const handlers = @import("default_handlers");
 
 pub fn main() anyerror!void {
     const stdout = std.io.getStdOut().writer();
 
     // Send notice and error messages to our stdout handler
-    c.initGEOS(handlers.shimNotice, handlers.shimError);
+    c.initGEOS(c.shimNotice, c.shimError);
 
     // Clean up the global context
     defer c.finishGEOS();

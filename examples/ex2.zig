@@ -7,7 +7,6 @@
 /// Ported from src/geos/examples/capi_prepared.c
 const c = @import("zig-geos");
 const std = @import("std");
-const handlers = @import("default_handlers");
 
 const ArrayList = std.ArrayList;
 const GeneralPurposeAllocator = std.heap.GeneralPurposeAllocator(.{});
@@ -19,7 +18,7 @@ pub fn main() !void {
     const allocator = gpa.allocator();
 
     // Send notice and error messages to our stdout handler
-    c.initGEOS(handlers.shimNotice, handlers.shimError);
+    c.initGEOS(c.shimNotice, c.shimError);
 
     // Clean up the global context
     defer c.finishGEOS();

@@ -40,27 +40,14 @@ pub fn build(b: *std.Build) !void {
     const capi_lib = try libgeos.createCAPI(b, geos_dep, target, optimize);
 
     const lib_mod = b.addModule("root", .{
-        .root_source_file = b.path("src/c_api.zig"),
+        .root_source_file = b.path("src/lib.zig"),
         .target = target,
         .optimize = optimize,
     });
+    libgeos.addIncludePath(b,lib_mod,geos_dep);
+    lib_mod.linkLibrary(core_lib);
+    lib_mod.linkLibrary(capi_lib);
 
-    const lib_static = b.addStaticLibrary(.{
-        .name = "zig-geos",
-        .root_source_file = b.path("src/c_api.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
-    libgeos.addIncludePath(b,lib_static,geos_dep);
-    lib_static.linkLibCpp();
-    lib_static.linkLibrary(core_lib);
-    lib_static.linkLibrary(capi_lib);
-
-    const module = b.addModule("default_handlers", .{
-        .root_source_file = b.path("src/shim/default_handlers.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
     for (examples) |ex| {
         const example_exe = b.addExecutable(.{
             .name = ex.cmd,
@@ -69,8 +56,6 @@ pub fn build(b: *std.Build) !void {
             .optimize = optimize,
         });
         libgeos.addIncludePath(b,example_exe,geos_dep);
-        example_exe.linkLibrary(lib_static);
-        example_exe.root_module.addImport("default_handlers", module);
         example_exe.root_module.addImport("zig-geos", lib_mod);
         b.installArtifact(example_exe);
 

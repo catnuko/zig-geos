@@ -6,7 +6,6 @@
 /// Note: the example does not actually use multi-threading or async functions.
 const c = @import("zig-geos");
 const std = @import("std");
-const handlers = @import("default_handlers");
 
 pub fn main() anyerror!void {
     const stdout = std.io.getStdOut().writer();
@@ -19,8 +18,8 @@ pub fn main() anyerror!void {
 
     // The notice/error handlers route message back to the calling
     // application. Here they just print to stdout.
-    _ = c.GEOSContext_setNoticeHandler_r(context, handlers.shimNotice);
-    _ = c.GEOSContext_setErrorHandler_r(context, handlers.shimError);
+    _ = c.GEOSContext_setNoticeHandler_r(context, c.shimNotice);
+    _ = c.GEOSContext_setErrorHandler_r(context, c.shimError);
 
     // Two squares that overlap
     const wkt_a = "POLYGON((0 0, 10 0, 10 10, 0 10, 0 0))";
